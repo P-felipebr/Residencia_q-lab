@@ -17,6 +17,11 @@ const userController = {
 
         try {
 
+            const ROLE = {
+                ADMIN: 'admin',
+                BASIC: 'basic'
+            }
+
             const {name, email, phone, password, confirmpassword} = req.body;
 
             //validations
@@ -70,6 +75,7 @@ const userController = {
                 email,
                 phone,
                 password: passwordHash,
+                role: ROLE.BASIC,
             });
             
 
