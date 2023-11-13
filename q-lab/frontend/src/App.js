@@ -6,34 +6,45 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Container from './components/layout/Container';
+import Message from './components/layout/Message';
 
 //Pages
 import Login from './components/pages/Auth/Login';
 import Register from './components/pages/Auth/Register';
 import Home from './components/pages/Home';
 
+// Context
+import { UserProvider } from './components/context/UserContext';
+
+
 function App() {
   return (
 
     <Router>
 
-      <Navbar/>
+      <UserProvider>
 
-      <Container>
-    
-        <Routes>
+        <Navbar/> 
 
-          <Route path='/login' element={<Login/>}> </Route>
+        <Message/>
 
-          <Route path='/register' element={<Register/>}> </Route>
+        <Container>
+      
+          <Routes>
 
-          <Route path='/' element={<Home/>}> </Route>
+            <Route path='/login' element={<Login/>}> </Route>
 
-        </Routes>
+            <Route path='/register' element={<Register/>}> </Route>
 
-      </Container>      
+            <Route path='/' element={<Home/>}> </Route>
 
-      <Footer/>
+          </Routes>
+
+        </Container>      
+
+        <Footer/>
+
+      </UserProvider>
 
     </Router>
     

@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Navbar.module.css';
 
+//context
+import { Context } from '../context/UserContext';
+
 function Navbar(){
+
+    const {authenticated, logout} = useContext(Context);
 
     return(
         <nav className = {styles.navbar}>
@@ -14,14 +19,22 @@ function Navbar(){
                 <li>
                     <Link to="/">Home</Link>
                 </li>
+                {authenticated ? (
 
-                <li>
+                <> <li onClick={logout}> Sair </li> </>
+
+                ) :(
+
+                <> <li>
                     <Link to="/Login">Entrar</Link>
                 </li>
 
                 <li>
                     <Link to="/register">Cadastrar</Link>
-                </li>
+                </li> </> 
+                )
+                
+                }
             </ul>
         </nav>
     )
