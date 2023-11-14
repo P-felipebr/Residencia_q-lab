@@ -1,0 +1,14 @@
+<div class="product-page">
+    <a href="/newslleters">Voltar</a>
+    <h1>{{newslleter.title}}</h1>
+    
+    <p>Preço: R${{newslleter.price}}</p>
+    <img src="{{newslleter.image}}" alt="{{newslleter.title}}">
+    <p>{{newslleter.description}}</p>
+
+    <form action="/newslleters/remove/{{newslleter._id}}" method="POST">
+
+        <input type="submit" value="Excluir" class="btn">
+
+    </form>
+</div>
